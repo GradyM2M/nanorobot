@@ -1,0 +1,6 @@
+<launch>
+    <arg name="tf_prefix" default="" />
+    <include file="$(find robot_navigation)/launch/lidar/$(env LIDAR_TYPE)_multi.launch">
+	<arg name="tf_prefix" value="$(arg tf_prefix)" />
+    </include>
+</launch>

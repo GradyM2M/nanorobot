@@ -1,0 +1,10 @@
+<launch>
+    <arg name="tf_prefix" default=""/>
+    <include file="$(find base_control)/launch/base_control_multi.launch">
+	<arg name="tf_prefix" value="$(arg tf_prefix)" />
+    </include>
+
+    <include file="$(find robot_navigation)/launch/lidar_multi.launch">
+	<arg name="tf_prefix" value="$(arg tf_prefix)" />
+    </include>
+</launch>
