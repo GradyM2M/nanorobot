@@ -1,0 +1,13 @@
+<launch>
+  <arg name="multi_robot_name" default=""/>
+  <arg name="set_lidar_frame_id" default="base_scan"/>
+  <!-- launch move base -->
+  <include file="$(find nanorobot_bringup)/launch/nanorobot_core.launch">
+    <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
+  </include>
+    <!-- launch lidar -->
+  <include file="$(find nanorobot_bringup)/launch/nanorobot_lidar.launch">
+  </include>
+
+  <!--node pkg="nanorobot_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/-->
+</launch>

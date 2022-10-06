@@ -1,0 +1,20 @@
+<launch>
+  <arg name="multi_robot_name" default=""/>
+
+  <!--serial communication between arduino and pc via usb /-->
+  <node name="arduino_serial_node" pkg="rosserial_python" type="serial_node.py" output="screen">
+    <param name="port" value="/dev/nanorobot_base" />
+    <param name="baud" value="57600" />
+    <param name="tf_prefix" value="$(arg multi_robot_name)"/>
+  </node>
+  <!--move base startup-->
+  <node name="nanorobot_movebase" pkg="nanorobot_bringup" type="nanorobot_movebase">
+    <param name="angular_scale" type="double" value="1" />
+    <param name="linear_scale" type="double" value="1" />
+    <param name="data_update_freq" type="int" value="50" /> 
+  </node>
+
+  <!--<include file="$(find nanorobot_bringup)/launch/robot_pos_ekf.launch" />-->
+
+
+</launch>
