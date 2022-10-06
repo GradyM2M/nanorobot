@@ -1,0 +1,7 @@
+<launch>
+  <!-- move_base -->
+  <include file="$(find nanorobot_navigation)/launch/move_base.launch">
+  </include>
+  <!-- Map server -->
+  <node pkg="nanorobot_navigation" name="exploring_slam.py" type="exploring_slam"/>
+</launch>
